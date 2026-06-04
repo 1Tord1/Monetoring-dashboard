@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Enkel system-dashboard</title>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
+    <h1>Enkel system-dashboard</h1> 
+
+
+    <div class="stats">
+        <div class="card">
+            <strong>Logget</strong>
+            <div data-field="current_time">{{ current_time }}</div>
+        </div>
+            <div class="card">
+            <strong>CPU-bruk</strong>
+            <div data-field="cpu_percent">{{ cpu_percent }} %</div>
+        </div>
+        <div class="card">
+            <strong>RAM total</strong>
+            <div data-field="ram_total_gb">{{ ram_total_gb }} GB</div>
+        </div>
+        <div class="card">
+            <strong>RAM brukt</strong>
+            <div data-field="ram_used_gb">{{ ram_used_gb }} GB / {{ ram_percent }} %</div>
+        </div>
+    </div>
+
+    <button onclick="location.reload()">logg</button>
+
+    <h2>Logg</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Logget</th>
+                <th>CPU %</th>
+                <th>RAM total (GB)</th>
+                <th>RAM brukt (GB)</th>
+                <th>RAM %</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in logs %}
+                <tr>
+                    <td>{{ entry.timestamp }}</td>
+                    <td>{{ entry.cpu_percent }}</td>
+                    <td>{{ entry.ram_total_gb }}</td>
+                    <td>{{ entry.ram_used_gb or "-" }}</td>
+                    <td>{{ entry.ram_percent or "-" }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Ingen loggdata tilgjengelig ennå.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     
+<div class="hjelp-container">
+    <span>For hjelp, spørsmål eller tilbakemelding send mail:</span>
+    <a href="mailto:tordholstad@gmail.com" class="epost-link">tordholstad@gmail.com</a>
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
 </body>
 </html>

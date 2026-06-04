@@ -1,0 +1,69 @@
+Jeg har satt opp prosjektet mitt og lastet det opp på GitHub.
+Jeg har laget en enkel Flask-dashboard som logger CPU og RAM-verdier i `access_logs.csv`, og viser dem i nettleseren.
+
+Slik går du til prosjektet og starter dashboardet:
+
+1. Åpne PowerShell.
+2. Gå til prosjektkatalogen:
+   cd "c:\Users\TORD\OneDrive - Osloskolen\2IT Kuben\programering\dashboard\Monetoring-dashboard"
+3. Aktiver det virtuelle miljøet:
+   .\venv\Scripts\Activate.ps1
+4. Installer nødvendige pakker (hvis ikke gjort ennå):
+   pip install -r requirements.txt
+5. Start Flask-serveren:
+   python app.py
+6. Åpne nettleseren og gå til:
+   http://127.0.0.1:5001/
+
+Hvis du vil oppdatere siden og lagre en ny måling, klikker du på knappen "Oppdater" i dashboardet.
+
+Søketermer for å finne dette:
+- "python psutil cpu ram" for å finne hvordan du leser systemet CPU- og RAM-data.
+- "python psutil virtual_memory" for å finne hvilken funksjon som viser RAM total, brukt og prosent.
+- "python psutil cpu_percent" for å finne hvordan du måler CPU-bruk.
+- "python csv writer" for å finne hvordan du lagrer logger i en CSV-fil.
+
+
+
+HVA DASHBOARDET GJØR:
+
+Når du åpner dashboardet første gang:
+- Flask logger tidspunkt, CPU%, og RAM-data i access_logs.csv
+- Siden viser denne dataen i kort øverst
+- Logg-tabellen viser alle tidligere målinger
+
+Etter det:
+- JavaScript-koden (script.js) oppdaterer siden hvert sekund
+- Den henter ny data fra /api/stats, men LOGGER IKKE
+- Tallene på siden oppdateres automagisk
+- Logg-tabellen blir bare oppdatert når du åpner siden på nytt
+
+---
+
+HVA JEG HAR GJORT:
+
+1. Laget Flask-backend (app.py):
+   - Leser hvor mye CPU maskinen bruker
+   - Leser hvor mye RAM (minne) maskinen bruker
+   - Lagrer dette i en CSV-fil (som Excel)
+   - Oppdaterer data hvert sekund
+
+2. Laget dashboard-siden (templates/dashboard.html):
+   - Viser CPU% og RAM i store kort
+   - Viser en tabell med all historikken
+   - JavaScript oppdaterer tallene automagisk
+
+3. Laget JavaScript (static/script.js):
+   - Henter ny data hvert sekund
+   - Oppdaterer kort-tallene uten å logge
+
+4. Laget design (static/style.css):
+   - Gjør siden pen å se på
+   - Blå farger, kort-layout, flott tabell
+
+5. Requirements.txt:
+   - Inneholder Flask og psutil (biblioteker som trengs)
+
+jeg satt opp siden helt nå og la til suport via email.
+
+netsiden logger lokalt
