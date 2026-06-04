@@ -1,0 +1,165 @@
+Systemovervåkingsdashboard med Flask
+Prosjektoversikt
+
+Dette prosjektet er et enkelt systemovervåkingsdashboard utviklet i Python med Flask. Dashboardet samler inn og viser CPU- og RAM-bruk fra maskinen det kjører på.
+
+Prosjektet er synkronisert til GitHub og kan kjøres lokalt via et virtuelt Python-miljø.
+
+Funksjoner
+Overvåker CPU-bruk i sanntid
+Overvåker RAM-bruk i sanntid
+Lagrer målinger lokalt i CSV-format
+Viser historiske logger i en tabell
+Automatisk oppdatering av verdier hvert sekund
+Støtte for e-postkontakt på nettsiden
+Tilgjengelig via localhost eller lokal IP-adresse
+Installasjon og oppstart
+1. Åpne PowerShell
+
+Naviger til prosjektmappen:
+
+cd sti\til\prosjektet
+2. Aktiver virtuelt miljø
+.\venv\Scripts\Activate.ps1
+3. Installer nødvendige pakker
+pip install -r requirements.txt
+4. Start Flask-serveren
+python app.py
+5. Åpne dashboardet
+
+Lokalt:
+
+http://127.0.0.1:5001
+
+Via nettverk:
+
+http://DIN-IP-ADRESSE:5001
+Hvordan bruke dashboardet
+
+Når dashboardet åpnes:
+
+Flask registrerer tidspunkt.
+CPU-bruk leses inn.
+RAM-data leses inn.
+Informasjonen lagres i access_logs.csv.
+Dataene vises på nettsiden.
+
+For å opprette en ny loggpost kan brukeren klikke på knappen "Logg".
+
+Hvordan systemet fungerer
+Første sideinnlasting
+
+Ved første innlasting:
+
+Tidspunkt registreres
+CPU-prosent registreres
+RAM-data registreres
+Informasjonen lagres i access_logs.csv
+Historiske målinger leses inn og vises
+Løpende oppdatering
+
+Etter innlasting:
+
+JavaScript sender forespørsler hvert sekund
+Data hentes fra API-endepunktet /api/stats
+Verdiene på skjermen oppdateres automatisk
+Ingen nye loggposter lagres automatisk
+
+Historikktabellen oppdateres først ved ny sideinnlasting eller ved manuell logging.
+
+Prosjektstruktur
+Backend (app.py)
+
+Ansvar:
+
+Leser CPU-bruk via psutil
+Leser RAM-bruk via psutil
+Oppretter CSV-logger
+Leverer API-data til frontend
+Frontend (dashboard.html)
+
+Ansvar:
+
+Viser CPU-data
+Viser RAM-data
+Viser historiske logger
+Presenterer informasjon i dashboard-format
+JavaScript (script.js)
+
+Ansvar:
+
+Henter oppdaterte data hvert sekund
+Oppdaterer visningen uten sideoppfriskning
+Logger ikke nye målinger automatisk
+CSS (style.css)
+
+Ansvar:
+
+Dashboard-design
+Kortvisning for systemdata
+Tabellutforming
+Responsivt brukergrensesnitt
+Requirements.txt
+
+Inneholder nødvendige Python-pakker:
+
+Flask
+psutil
+Lokal datalagring
+
+Alle målinger lagres lokalt i:
+
+access_logs.csv
+
+CSV-filen inneholder:
+
+Tidspunkt
+CPU-prosent
+RAM brukt
+RAM totalt
+RAM-prosent
+GitHub
+
+Prosjektet er versjonskontrollert med Git og synkronisert til GitHub.
+
+GitHub brukes til:
+
+Sikker lagring av kildekode
+Versjonskontroll
+Samarbeid og videre utvikling
+Dokumentasjon av prosjektet
+Ressurser brukt under utvikling
+
+Følgende søketermer ble brukt under utviklingen:
+
+"python psutil cpu ram"
+"python psutil virtual_memory"
+"python psutil cpu_percent"
+"python csv writer"
+
+Disse ressursene ble brukt for å lære hvordan man:
+
+Leser CPU-bruk
+Leser RAM-bruk
+Henter systeminformasjon med psutil
+Lagrer data i CSV-format
+Bygger et Flask-basert dashboard
+Status
+
+✔ Flask-dashboard implementert
+
+✔ CPU-overvåking implementert
+
+✔ RAM-overvåking implementert
+
+✔ CSV-logging implementert
+
+✔ Automatisk oppdatering implementert
+
+✔ Historikkvisning implementert
+
+✔ E-poststøtte implementert
+
+✔ Prosjekt synkronisert til GitHub
+
+skrevet av meg satt opp og organisert av chat gpt
