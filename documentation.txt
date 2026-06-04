@@ -5,7 +5,6 @@ Slik går du til prosjektet og starter dashboardet:
 
 1. Åpne PowerShell.
 2. Gå til prosjektkatalogen:
-   cd "c:\Users\TORD\OneDrive - Osloskolen\2IT Kuben\programering\dashboard\Monetoring-dashboard"
 3. Aktiver det virtuelle miljøet:
    .\venv\Scripts\Activate.ps1
 4. Installer nødvendige pakker (hvis ikke gjort ennå):
@@ -13,7 +12,7 @@ Slik går du til prosjektet og starter dashboardet:
 5. Start Flask-serveren:
    python app.py
 6. Åpne nettleseren og gå til:
-   http://127.0.0.1:5001/ eller http://10.2.1.56:5001
+   http://127.0.0.1:5001/ eller http://'din ip':5001
 
 Hvis du vil oppdatere siden og lagre en ny måling, klikker du på knappen "logg" i dashboardet.
 
