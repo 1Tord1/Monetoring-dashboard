@@ -13,9 +13,9 @@ Slik går du til prosjektet og starter dashboardet:
 5. Start Flask-serveren:
    python app.py
 6. Åpne nettleseren og gå til:
-   http://127.0.0.1:5001/
+   http://127.0.0.1:5001/ eller http://10.2.1.56:5001
 
-Hvis du vil oppdatere siden og lagre en ny måling, klikker du på knappen "Oppdater" i dashboardet.
+Hvis du vil oppdatere siden og lagre en ny måling, klikker du på knappen "logg" i dashboardet.
 
 Søketermer for å finne dette:
 - "python psutil cpu ram" for å finne hvordan du leser systemet CPU- og RAM-data.
@@ -66,4 +66,7 @@ HVA JEG HAR GJORT:
 
 jeg satt opp siden helt nå og la til suport via email.
 
-netsiden logger lokalt
+netsiden logger lokalt med csv.
+
+jeg har syncronisert prosjektet til GitHub 
+
